@@ -26,7 +26,7 @@ function fnTypePass(arr) {
   return isValid
 }
 
-// generate
+// generate string password
 function fnGenerate() {
   let lowSet = "abcdefghijklmnopqrstuvwxyz";
   let upSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -73,7 +73,7 @@ function fnGenerate() {
     }
   }
 
-  
+  document.getElementById("password").innerHTML = genPassword
   console.log(genPassword);
 }
 
