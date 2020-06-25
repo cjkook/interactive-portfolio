@@ -4,10 +4,8 @@ body{
 
 .bgimg-1,
 .bgimg-2,
-.bgimg-3,
-.bgimg-4,
-.bgimg-5,
-.bgimg-6 {
+.bgimg-3
+{
   position: relative;
   opacity: 0.65;
   background-attachment: fixed;
@@ -18,11 +16,10 @@ body{
 .bgimg-1 {
   background-image: url("../../images/password-gen-img/gen-vertMelt-1.png");
   min-height: 100%;
-  height: 100%;
 }
 .bgimg-2 {
   background-image: url("../../images/password-gen-img/gen-vertMelt-2.png");
-  min-height: 400px;
+  min-height: 200px;
 }
 .bgimg-3 {
   background-image: url("../../images/password-gen-img/gen-vertMelt-3.png");
@@ -33,7 +30,7 @@ body{
   /* position: absolute; */
   /* left: 0; */
   /* top: 15%; */
-  padding:20px;
+  padding:5vh;
   width: 100%;
   text-align: center;
   color: #000;
@@ -46,20 +43,4 @@ body{
   font-size: 55px;
   letter-spacing: 20px;
 }
-.caption span.settings-menu {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 20px;
-  letter-spacing: 4px;
-}
-textarea {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 20px;
-  letter-spacing: 4px;
-}
-.custom-range {
-  width: 10%;
-}
+
