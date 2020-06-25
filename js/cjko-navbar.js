@@ -18,7 +18,6 @@ var navBar = `<div class="dash-nav dash-nav-dark">
         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
             <i class="fas fa-cube"></i> Homework </a>
         <div class="dash-nav-dropdown-menu">
-            <a href="#" class="dash-nav-dropdown-item">Refactor</a>
             <a href="#" class="dash-nav-dropdown-item">Bootstrap</a>
             <a href="password-gen.html" class="dash-nav-dropdown-item">Password Generator</a>
         </div>

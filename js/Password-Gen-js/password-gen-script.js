@@ -1,8 +1,8 @@
 let totalChar = 10;
 
 // slider
-var lengthSlider = document.getElementById("lengthSlider");
-var output = document.getElementById("lengthInt");
+let lengthSlider = document.getElementById("lengthSlider");
+let output = document.getElementById("lengthInt");
 output.innerHTML = lengthSlider.value;
 
 // functions
