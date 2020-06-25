@@ -50,7 +50,7 @@ function fnGenerate() {
 
 
   // validate selection and generate
-  if (setArray.length == 0) {
+  if (setArray.length === 0) {
     alert("Please select characters to use.");
   } else {
     // create a passing array to ensure each category was selected at least once
@@ -74,7 +74,7 @@ function fnGenerate() {
     }
   }
 
-  document.getElementById("password").innerHTML = genPassword
+  document.getElementById("password").innerHTML = genPassword;
   console.log(genPassword);
 }
 
