@@ -17,6 +17,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/spur.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="../js/chart-js-config.js"></script>
 
     <!-- cjko custom css  -->
     <link href="../css/cjko-css/code-quiz-style.css" rel="stylesheet" />
@@ -45,6 +47,20 @@
             <div class="row dash-row">
               <!-- score area  -->
               <div class="col-sm-4">
+                <div class="row-fluid">
+                  <div class="card spur-card">
+                    <div class="card-header bg-primary text-white">
+                      <div class="spur-card-icon">
+                        <i class="fas fa-image"></i>
+                      </div>
+                      <div class="spur-card-title"></div>
+                    </div>
+                    <div class="card-body">
+                      Keep track of score here.
+                    </div>
+                  </div>
+                </div>
+                <!-- charts  -->
                 <div class="card spur-card">
                   <div class="card-header bg-primary text-white">
                     <div class="spur-card-icon">
@@ -52,8 +68,55 @@
                     </div>
                     <div class="spur-card-title"></div>
                   </div>
-                  <div class="card-body">
-                    Keep track of score here.
+                  <div class="card-body spur-card-body-chart">
+                    <canvas id="spurChartjsTwoBars"></canvas>
+                    <script>
+                      var ctx = document
+                        .getElementById("spurChartjsTwoBars")
+                        .getContext("2d");
+                      var myChart = new Chart(ctx, {
+                        type: "bar",
+                        data: {
+                          labels: [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                          ],
+                          datasets: [
+                            {
+                              label: "Blue",
+                              data: [12, 19, 3, 5, 2],
+                              backgroundColor: window.chartColors.primary,
+                              borderColor: "transparent",
+                            },
+                            {
+                              label: "Red",
+                              data: [4, 12, 11, 2, 14],
+                              backgroundColor: window.chartColors.danger,
+                              borderColor: "transparent",
+                            },
+                          ],
+                        },
+                        options: {
+                          legend: {
+                            display: false,
+                          },
+                          scales: {
+                            yAxes: [
+                              {
+                                ticks: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            ],
+                          },
+                        },
+                      });
+                      myChart.data.datasets[0].data[0] = prompt("asfd")
+                      myChart.update()
+                    </script>
                   </div>
                 </div>
               </div>
