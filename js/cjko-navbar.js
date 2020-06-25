@@ -1,13 +1,13 @@
 // NAVIGATION BAR
 var navBar = "";
-var toobar = "";
+var toolbar = "";
 var path = window.location.pathname;
 var page = path.split("/").pop();
 console.log( page );
 // console.log('cjko: navbar create ')
 
 // pathing changes for index.html versus subpages
-if (page === "index.html") {
+if (page === "index.html" || page === '') {
   navBar = `<div class="dash-nav dash-nav-dark">
 <header>
     <a href="#!" class="menu-toggle">
