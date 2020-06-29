@@ -16,3 +16,4 @@ This is a standalone web page showcasing a variety of techniques, concepts, and 
 ## Credits
 Created by Corey J. Kothenbeutel<br/>
 Artwork by Corey J. Kothenbeutel
+Code Quiz trivia found [here](https://thoughtcatalog.com/samantha-newman/2020/03/250-best-trivia-questions/).
