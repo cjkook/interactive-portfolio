@@ -46,7 +46,7 @@
           <div class="container" style="padding-top: 5vh;">
             <div class="row dash-row">
               <!-- score area  -->
-              <div class="col-sm-4">
+              <div class="col-sm-5">
                 <div class="row-fluid">
                   <div class="card spur-card">
                     <div class="card-header bg-primary text-white">
@@ -78,21 +78,27 @@
                         type: "bar",
                         data: {
                           labels: [
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
+                            "Technology",
+                            "Pop Culture",
+                            "Mythology",
                             "Thursday",
                             "Friday",
                           ],
                           datasets: [
                             {
-                              label: "Blue",
+                              label: "Correct",
                               data: [12, 19, 3, 5, 2],
                               backgroundColor: window.chartColors.primary,
                               borderColor: "transparent",
                             },
                             {
-                              label: "Red",
+                              label: "Incorrect",
+                              data: [4, 12, 11, 2, 14],
+                              backgroundColor: window.chartColors.danger,
+                              borderColor: "transparent",
+                            },
+                            {
+                              label: "Hint Used",
                               data: [4, 12, 11, 2, 14],
                               backgroundColor: window.chartColors.danger,
                               borderColor: "transparent",
@@ -101,7 +107,7 @@
                         },
                         options: {
                           legend: {
-                            display: false,
+                            display: true,
                           },
                           scales: {
                             yAxes: [
@@ -114,14 +120,14 @@
                           },
                         },
                       });
-                      myChart.data.datasets[0].data[0] = prompt("asfd")
+                      // myChart.data.datasets[0].data[0] = prompt("asfd") 
                       myChart.update()
                     </script>
                   </div>
                 </div>
               </div>
               <!-- question area  -->
-              <div class="col-sm-8">
+              <div class="col-sm-7">
                 <div class="row-fluid">
                   <div class="card spur-card">
                     <div class="card-header">
@@ -179,6 +185,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/spur.js"></script>
+
+    <!-- code quiz  -->
+    <script src="../js/Code-Quiz-js/code-quiz.js"></script>
 
     <!-- cjko website self-build scripts -->
     <script src="../js/cjko-navbar.js" type="text/javascript"></script>
