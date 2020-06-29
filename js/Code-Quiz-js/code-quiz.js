@@ -1,4 +1,6 @@
-let startBtn;
+let qArea = document.getElementById("qArea");
+let qTitle = document.getElementById("qTitle");
+let qIndex = 0;
 var questions = [
   {
     title: "W-W-What?",
@@ -39,14 +41,20 @@ var questions = [
   },
 ];
 fnPageSetup();
-fnStart();
+
 
 // initialize all fields
 function fnPageSetup() {
   // question area
-  // todo create start button, then add to card
+  let startBtn = document.createElement("button");
+  startBtn.setAttribute("class", "btn btn-success");
+  startBtn.setAttribute("id", "start");
+  startBtn.textContent = "Start";
+  qArea.appendChild(startBtn)
   startBtn = document.getElementById("start");
   startBtn.addEventListener("click", fnStart);
+
+  fnUpdateChart(); // update chart
 }
 
 // start quiz
@@ -62,16 +70,49 @@ function fnStart(event) {
   }
 
   console.log(questions);
+  // Update cards to start
+  console.log('hit')
+  fnUpdateCards('start')
 }
 
 // choose answer
 // bubble up delegation
-function fnAnswer() {}
+function fnAnswer() {
+  // find element to delegate from
+  //
+}
 
 // update chart from stored data
-function fnUpdateChart() {}
+function fnUpdateChart() {
+  // set local data or use default
+  
+}
 
-function fnUpdateCards(state) {}
+function fnUpdateCards(state) {
+  switch(state) {
+    case 'start':
+      let cardText = ""
+      qIndex = 0
+      // set qArea and qTitle
+      qTitle.textContent = questions[qIndex].title
+
+      cardText = questions[qIndex].qText
+      cardText += "<ul>"
+      questions[qIndex].answers.forEach(ans => cardText += `<li>${ans}</li>`) 
+      cardText += "</ul>"
+      qArea.innerHTML = cardText
+
+      // set hint text
+      console.log(cardText)
+      break
+
+    case 'next':
+      break
+
+    case 'end':
+      break
+  }
+}
 
 function fnHint() {
   // change text
