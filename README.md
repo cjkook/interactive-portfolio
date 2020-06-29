@@ -1,7 +1,5 @@
 # Interactive Portfolio
 
-![Screenshot of template splash](/images/screenshot-1.png)
-
 ## Table of Contents 
 * Installation
 * Projects
