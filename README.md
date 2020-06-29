@@ -13,6 +13,7 @@ This is a standalone web page showcasing a variety of techniques, concepts, and 
 ## Projects
 * [Bootstrap Theme](https://cjkook.github.io/02-homework-bootstrap-portfolio/)
 * [Password Generator](https://cjkook.github.io/interactive-portfolio/html/password-gen.html)
+* [Code Quiz](https://cjkook.github.io/interactive-portfolio/html/code-quiz.html)
 
 ## Credits
 Created by Corey J. Kothenbeutel<br/>
