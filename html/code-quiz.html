@@ -51,7 +51,7 @@
                   <div class="card spur-card">
                     <div class="card-header bg-primary text-white">
                       <div class="spur-card-icon">
-                        <i class="fas fa-image"></i>
+                        <i class="fas fa-image"></i><span id="timeText"> Time Left: 00:00</span> 
                       </div>
                       <div class="spur-card-title"></div>
                     </div>
@@ -81,17 +81,9 @@
                       <div class="spur-card-icon">
                         <i class="fas fa-image"></i>
                       </div>
-                      <div class="spur-card-title" id="qTitle">Question Title</div>
+                      <div class="spur-card-title" id="qTitle">Are you ready?</div>
                     </div>
-                    <div class="card-body" id="qArea">
-                      This is where question text goes.
-                      <ul>
-                        <li>With answers down here.</li>
-                        <li>With answers down here.</li>
-                        <li>With answers down here.</li>
-                        <li>With answers down here.</li>
-                      </ul>
-                    </div>
+                    <div class="card-body" id="qArea"></div>
                     <div class="card-body" id="btnArea"></div>
                   </div>
                 </div>
@@ -99,10 +91,10 @@
                 <div class="row-fluid">
                   <div class="card spur-card">
                     <div class="card-header bg-warning text-white" id="hint">
-                      <div class="spur-card-icon">
+                      <div class="spur-card-icon" style="pointer-events: none;">
                         <i class="fas fa-image"></i>
                       </div>
-                      <div class="spur-card-title">Hint Section</div>
+                      <div class="spur-card-title" style="pointer-events: none;">Hint Section</div>
                     </div>
                     <div class="card-body" id="hintText">
                       Add a hint here.

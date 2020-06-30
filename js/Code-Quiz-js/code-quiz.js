@@ -1,6 +1,7 @@
 let qArea = document.getElementById("qArea");
 let qTitle = document.getElementById("qTitle");
 let qHintText = document.getElementById("hintText");
+let qTimeText = document.getElementById("timeText");
 let startBtn;
 let nextBtn;
 let endBtn;
@@ -45,6 +46,7 @@ var questions = [
     hint: "",
   },
 ];
+let quizTime = questions.length * 5;
 var ctx = document.getElementById("scoreChart").getContext("2d");
 var myChart = new Chart(ctx, {
   type: "bar",
@@ -52,20 +54,20 @@ var myChart = new Chart(ctx, {
     labels: ["Technology", "Pop Culture", "Mythology", "Thursday", "Friday"],
     datasets: [
       {
-        label: "Correct",
-        data: [12, 19, 3, 5, 2],
-        backgroundColor: window.chartColors.primary,
-        borderColor: "transparent",
-      },
-      {
         label: "Incorrect",
-        data: [4, 12, 11, 2, 14],
+        data: [0, 0, 0, 0, 0],
         backgroundColor: window.chartColors.danger,
         borderColor: "transparent",
       },
       {
+        label: "Correct",
+        data: [0, 0, 0, 0, 0],
+        backgroundColor: window.chartColors.primary,
+        borderColor: "transparent",
+      },
+      {
         label: "Hint Used",
-        data: [4, 12, 11, 2, 14],
+        data: [0, 0, 0, 0, 0],
         backgroundColor: window.chartColors.warning,
         borderColor: "transparent",
       },
@@ -141,6 +143,8 @@ function fnCreateRadio() {
 }
 
 function fnCreateQuestion() {
+  let cardText = "";
+
   // set qTitle
   qTitle.textContent = questions[qIndex].title;
 
@@ -155,21 +159,21 @@ function fnCreateQuestion() {
   nextBtn.setAttribute("style", "display:block;");
   startBtn.setAttribute("style", "display:none;");
   endBtn.setAttribute("style", "display:none;");
-  // qHintText.setAttribute("style", "display:none;");
+  qHintText.setAttribute("style", "display:none;");
 
   // set hint text
-  qHintText.textContent = questions[qIndex].hint
+  qHintText.textContent = questions[qIndex].hint;
 }
 
 function fnUpdateCards(event) {
   event.preventDefault();
   let state = event.srcElement.id;
-  console.log(state);
+  console.log(event);
 
   switch (state) {
     case "start":
-      let cardText = "";
       qIndex = 0;
+      quizTime = questions.length * 5;
 
       // shuffle question objects
       for (let i = questions.length - 1; i > 0; i--) {
@@ -180,7 +184,7 @@ function fnUpdateCards(event) {
       }
 
       fnCreateQuestion();
-
+      startTimer()
       break;
 
     case "next":
@@ -191,9 +195,7 @@ function fnUpdateCards(event) {
 
       // check ansRadio
       col.forEach(function (ans, i) {
-        if (ans.matches("label")) {
-          ansBank.push(ans);
-        }
+        if (ans.matches("label")) ansBank.push(ans);
       });
       col.forEach(function (ans, i) {
         if (ans.matches("input") && ans.checked) {
@@ -208,10 +210,25 @@ function fnUpdateCards(event) {
       });
 
       // update data objects and charts
+      myChart.data.labels.forEach(function (match, i) {
+        for (let j = 0; j <= questions[qIndex].category.length; j++) {
+          if (questions[qIndex].category[j] === match) {
+            myChart.data.datasets[result].data[i]++;
+            console.log(myChart.data.datasets);
+            fnUpdateChart();
+          }
+        }
+      });
 
-      // update question index
-      qIndex++;
-      fnCreateQuestion();
+      // update question index & cards
+      if (result === undefined) {
+        // todo : please select an answer
+      } else {
+        qIndex++;
+        qIndex >= questions.length ? (qIndex = 0) : 0;
+        fnCreateQuestion();
+      }
+
       break;
 
     case "end":
@@ -220,7 +237,28 @@ function fnUpdateCards(event) {
 
     case "hint":
       qHintText.setAttribute("style", "display: block;");
+
+      // update data objects and charts
+      myChart.data.labels.forEach(function (match, i) {
+        for (let j = 0; j <= questions[qIndex].category.length; j++) {
+          if (questions[qIndex].category[j] === match) {
+            myChart.data.datasets[2].data[i]++;
+            fnUpdateChart();
+          }
+        }
+      });
   }
+}
+
+function fnEnd() {
+  // button visibility
+  nextBtn.setAttribute("style", "display:none;");
+  startBtn.setAttribute("style", "display:block;");
+  startBtn.innerHTML = "Try Again"
+  endBtn.setAttribute("style", "display:none;");
+  qHintText.setAttribute("style", "display:block;");
+  qTitle.textContent = "!!!!!!!";
+  qArea.innerHTML = "<h2>You ran out of time!</h2>"
 }
 
 // update chart from stored data
@@ -228,4 +266,20 @@ function fnUpdateChart() {
   // set local data or use default
 
   myChart.update(); // update visuals
+}
+
+// timer
+function startTimer() {
+  // time based on number of questions
+
+  var timerInterval = setInterval(function() {
+    quizTime--;
+    qTimeText.textContent = quizTime + " seconds left till colorsplosion.";
+
+    if(quizTime === 0) {
+      clearInterval(timerInterval);
+      fnEnd()
+    }
+
+  }, 1000);
 }
