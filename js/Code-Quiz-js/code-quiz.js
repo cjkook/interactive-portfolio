@@ -183,7 +183,7 @@ function fnUpdateCards(event) {
       }
 
       fnCreateQuestion();
-      startTimer()
+      startTimer();
       break;
 
     case "next":
@@ -253,11 +253,14 @@ function fnEnd() {
   // button visibility
   nextBtn.setAttribute("style", "display:none;");
   startBtn.setAttribute("style", "display:block;");
-  startBtn.innerHTML = "Try Again"
+  startBtn.innerHTML = "Try Again";
   endBtn.setAttribute("style", "display:none;");
   qHintText.setAttribute("style", "display:block;");
-  qTitle.textContent = "!!!!!!!";
-  qArea.innerHTML = "<h2>You ran out of time!</h2>"
+
+  if (!quizTime) {  // timer ran out
+    qTitle.textContent = "!!!!!!!";
+    qArea.innerHTML = "<h2>You ran out of time!</h2>";
+  }
 }
 
 // update chart from stored data
@@ -271,14 +274,13 @@ function fnUpdateChart() {
 function startTimer() {
   // time based on number of questions
 
-  var timerInterval = setInterval(function() {
+  var timerInterval = setInterval(function () {
     quizTime--;
     qTimeText.textContent = quizTime + " seconds left till colorsplosion.";
 
-    if(quizTime === 0) {
+    if (quizTime === 0) {
       clearInterval(timerInterval);
-      fnEnd()
+      fnEnd();
     }
-
   }, 1000);
 }
