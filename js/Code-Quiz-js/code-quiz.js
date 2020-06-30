@@ -88,7 +88,6 @@ var myChart = new Chart(ctx, {
     },
   },
 });
-// myChart.data.datasets[0].data[0] = prompt("asfd")
 
 fnPageSetup();
 
