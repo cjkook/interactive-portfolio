@@ -68,62 +68,9 @@
                     </div>
                     <div class="spur-card-title"></div>
                   </div>
-                  <div class="card-body spur-card-body-chart">
-                    <canvas id="spurChartjsTwoBars"></canvas>
-                    <script>
-                      var ctx = document
-                        .getElementById("spurChartjsTwoBars")
-                        .getContext("2d");
-                      var myChart = new Chart(ctx, {
-                        type: "bar",
-                        data: {
-                          labels: [
-                            "Technology",
-                            "Pop Culture",
-                            "Mythology",
-                            "Thursday",
-                            "Friday",
-                          ],
-                          datasets: [
-                            {
-                              label: "Correct",
-                              data: [12, 19, 3, 5, 2],
-                              backgroundColor: window.chartColors.primary,
-                              borderColor: "transparent",
-                            },
-                            {
-                              label: "Incorrect",
-                              data: [4, 12, 11, 2, 14],
-                              backgroundColor: window.chartColors.danger,
-                              borderColor: "transparent",
-                            },
-                            {
-                              label: "Hint Used",
-                              data: [4, 12, 11, 2, 14],
-                              backgroundColor: window.chartColors.danger,
-                              borderColor: "transparent",
-                            },
-                          ],
-                        },
-                        options: {
-                          legend: {
-                            display: true,
-                          },
-                          scales: {
-                            yAxes: [
-                              {
-                                ticks: {
-                                  beginAtZero: true,
-                                },
-                              },
-                            ],
-                          },
-                        },
-                      });
-                      // myChart.data.datasets[0].data[0] = prompt("asfd") 
-                      myChart.update()
-                    </script>
-                  </div>
+                  <aside class="card-body spur-card-body-chart">
+                    <canvas id="scoreChart"></canvas>
+                  </aside>
                 </div>
               </div>
               <!-- question area  -->
@@ -145,18 +92,19 @@
                         <li>With answers down here.</li>
                       </ul>
                     </div>
+                    <div class="card-body" id="btnArea"></div>
                   </div>
                 </div>
                 <!-- hint area  -->
                 <div class="row-fluid">
                   <div class="card spur-card">
-                    <div class="card-header bg-warning text-white">
+                    <div class="card-header bg-warning text-white" id="hint">
                       <div class="spur-card-icon">
                         <i class="fas fa-image"></i>
                       </div>
                       <div class="spur-card-title">Hint Section</div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" id="hintText">
                       Add a hint here.
                     </div>
                   </div>
