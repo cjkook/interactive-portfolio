@@ -8,26 +8,26 @@ let nextBtn;
 let endBtn;
 let hintBtn;
 let qIndex = 0;
-var scoreSystem = localStorage.getItem("quizData") || [
+var scoreSystem = JSON.parse(localStorage.getItem("quizData")) || [
   {
     name: "test",
     scoreData: [
       {
         label: "Incorrect",
         data: [1, 0, 0, 0, 0],
-        backgroundColor: window.chartColors.danger,
+        // backgroundColor: window.chartColors.danger,
         borderColor: "transparent",
       },
       {
         label: "Correct",
         data: [0, 0, 0, 0, 0],
-        backgroundColor: window.chartColors.primary,
+        // backgroundColor: window.chartColors.primary,
         borderColor: "transparent",
       },
       {
         label: "Hint Used",
         data: [0, 0, 0, 0, 0],
-        backgroundColor: window.chartColors.warning,
+        // backgroundColor: window.chartColors.warning,
         borderColor: "transparent",
       },
     ],
@@ -35,6 +35,7 @@ var scoreSystem = localStorage.getItem("quizData") || [
   },
 ];
 console.log(scoreSystem);
+localStorage.setItem("quizData", JSON.stringify(scoreSystem));
 var questions = [
   {
     title: "W-W-What?",
@@ -84,19 +85,19 @@ var myChart = new Chart(ctx, {
       {
         label: "Incorrect",
         data: [0, 0, 0, 0, 0],
-        backgroundColor: window.chartColors.danger,
+        // backgroundColor: window.chartColors.danger,
         borderColor: "transparent",
       },
       {
         label: "Correct",
         data: [0, 0, 0, 0, 0],
-        backgroundColor: window.chartColors.primary,
+        // backgroundColor: window.chartColors.primary,
         borderColor: "transparent",
       },
       {
         label: "Hint Used",
         data: [0, 0, 0, 0, 0],
-        backgroundColor: window.chartColors.warning,
+        // backgroundColor: window.chartColors.warning,
         borderColor: "transparent",
       },
     ],
@@ -207,7 +208,7 @@ function fnUpdateCards(event) {
         questions[i] = questions[j];
         questions[j] = temp;
       }
-
+      fnLogin();
       fnUpdateChart();
       fnCreateQuestion();
       startTimer();
@@ -295,6 +296,7 @@ function fnEnd(state) {
       qArea.innerHTML = "<h2>You ran out of time!</h2>";
       qTimeText.textContent = " Time is up!";
     case "finish": // timer ran out
+      // fnUpdateData();
       qTitle.textContent = "Finished!";
       qArea.innerHTML = "<h2>You ran out of time!</h2>";
   }
@@ -302,48 +304,75 @@ function fnEnd(state) {
 
 // update chart from stored data
 function fnUpdateChart() {
-  // set local data or use default
-
+  // update chart
   myChart.update(); // update visuals
 }
 
+
+function fnUpdateData() {
+  localStorage.setItem(username.value, data);
+}
+// function fnUpdateData() {
+//   scoreSystem.forEach(function (item) {
+//     item.forEach(function (entry, i) {
+//       if(entry.hidden) {
+//         console.log('hidden data')
+//       }
+//     })
+//   })
+  
+//   console.log(scoreSystem)
+//   let data = JSON.stringify(scoreSystem)
+//   scoreSystem.forEach(function (entry, i) {
+//     if (entry.name === username.value) {
+//       console.log("save");
+//       localStorage.setItem("quizData", data);
+//     }
+//   });
+// }
+
 function fnLogin() {
-  // use local storage
+  let userFound = 0;
   console.log(scoreSystem);
   scoreSystem.forEach(function (entry, i) {
     if (entry.name === username.value) {
+      userFound = 1;
       myChart.data.datasets = scoreSystem[i].scoreData;
-    } else {
-      scoreSystem[scoreSystem.length] = {
-        name: `${username.value}`,
-        scoreData: [
-          {
-            label: "Incorrect",
-            data: [0, 0, 0, 0, 0],
-            backgroundColor: window.chartColors.danger,
-            borderColor: "transparent",
-          },
-          {
-            label: "Correct",
-            data: [0, 0, 0, 0, 0],
-            backgroundColor: window.chartColors.primary,
-            borderColor: "transparent",
-          },
-          {
-            label: "Hint Used",
-            data: [0, 0, 0, 0, 0],
-            backgroundColor: window.chartColors.warning,
-            borderColor: "transparent",
-          },
-        ],
-        hiScore: 10,
-      };
-      console.log(scoreSystem);
-      myChart.data.datasets = scoreSystem[scoreSystem.length - 1].scoreData;
     }
   });
+  if (!userFound) {
+    scoreSystem[scoreSystem.length] = {
+      name: `${username.value}`,
+      scoreData: [
+        {
+          label: "Incorrect",
+          data: [0, 0, 0, 0, 0],
+          // backgroundColor: window.chartColors.danger,
+          borderColor: "transparent",
+        },
+        {
+          label: "Correct",
+          data: [0, 0, 0, 0, 0],
+          // backgroundColor: window.chartColors.primary,
+          borderColor: "transparent",
+        },
+        {
+          label: "Hint Used",
+          data: [0, 0, 0, 0, 0],
+          // backgroundColor: window.chartColors.warning,
+          borderColor: "transparent",
+        },
+      ],
+      hiScore: 0,
+    };
+    console.log(scoreSystem);
+    myChart.data.datasets = scoreSystem[scoreSystem.length - 1].scoreData;
+  }
+
   console.log(scoreSystem);
 }
+
+// localStorage.setItem("quizData", scoreSystem);
 
 // timer
 function startTimer() {

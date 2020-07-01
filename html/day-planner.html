@@ -1,144 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700"
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/spur.css" />
-
-    <!-- cjko custom css  -->
-    <link href="../css/cjko-css/password-gen-style.css" rel="stylesheet" />
-
-    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
   </head>
-  <body>
-    <div class="dash">
-      <!-- common navbar creation  -->
-      <div class="dash-nav dash-nav-dark" id="commonNavbar"></div>
-      <div class="dash-app">
-        <!-- common toolbar creation  -->
-        <header class="dash-toolbar" id="commonToolbar"></header>
 
-        <!-- main content  -->
-        <main class="dash-content-fluid">
-          <!-- banner parallax 1 -->
-          <div class="bgimg-1">
-            <div class="caption">
-              <span class="border-message">Password Generator</span>
-            </div>
-            <div class="row">
-              <div class="caption">
-                <span class="settings-menu">
-                  <label for="customRange1">Password Length</label>
-                  <input type="range" class="custom-range" id="lengthSlider" min="8" max="128" value="10" />
-                  <span class="settings-menu" id="lengthInt">0</span>
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="caption">
-                <span class="settings-menu">
-                  <label for="customRange1">Use lowercase</label>
-                  <input type="checkbox" id="useLow" />
-                </span>
-                <span class="settings-menu">
-                  <label for="customRange1">Use uppercase</label>
-                  <input type="checkbox" id="useUp" />
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="caption">
-                <span class="settings-menu">
-                  <label for="customRange1">Use numbers</label>
-                  <input type="checkbox" id="useNumb" />
-                </span>
-                <span class="settings-menu">
-                  <label for="customRange1">Use special</label>
-                  <input type="checkbox" id="useSpecial" />
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="caption">
-                <div class="settings-menu">
-                  <button type="button" class="btn btn-success" onclick="fnGenSetup()">Success</button>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="caption">
-                <div class="settings-menu">
-                  <textarea
-                  readonly
-                  id="password"
-                  placeholder="Your Secure Password"
-                  aria-label="Generated Password"
-                ></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- <div class="container">
-            <div class="card">
-              <div class="card-header">
-                <h2>Generate a Password</h2>
-              </div>
-              <div class="card-body">
-                <textarea
-                  readonly
-                  id="password"
-                  placeholder="Your Secure Password"
-                  aria-label="Generated Password"
-                ></textarea>
-              </div>
-              <div class="card-footer">
-                <button id="generate" class="btn" onclick="fnGenerate()">Generate Password</button>
-              </div>
-            </div>
-          </div> -->
-          <!-- banner parallax 1 -->
-          <!-- <div class="bgimg-2">
-            <div class="caption">
-              <span class="border-message">Password Generator</span>
-            </div>
-          </div> -->
-        </main>
-      </div>
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
+      <!-- Timeblocks go here -->
     </div>
 
-    <!-- jquery -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../js/spur.js"></script>
-
-    <!-- cjko website self-build scripts -->
-    <script src="../js/cjko-navbar.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   </body>
 </html>
