@@ -134,7 +134,7 @@ toolbar = `<a href="#!" class="menu-toggle">
 document.getElementById("commonNavbar").innerHTML = navBar;
 document.getElementById("commonToolbar").innerHTML = toolbar;
 
-// about nav item
+// ! about nav item
 /* <div class="dash-nav-dropdown">
   <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
     <i class="fas fa-info"></i> About{" "}

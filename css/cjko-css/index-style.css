@@ -1,0 +1,23 @@
+body {
+  color: #CFDBD5;
+}
+
+.bgimg-1 {
+  background-image: url("../../images/speckled-temp.png");
+  min-height: 100%;
+  background-size: cover;
+}
+
+.spur-card,
+.spur-card .card-header{
+  background-color: #333533;
+}
+
+.dash-toolbar, .searchbox-input {
+  background-color: #333533;
+}
+
+.dash-nav.dash-nav-dark {
+  background-color: #242423;
+  
+}
