@@ -1,3 +1,4 @@
+let username = document.getElementById("username");
 let qArea = document.getElementById("qArea");
 let qTitle = document.getElementById("qTitle");
 let qHintText = document.getElementById("hintText");
@@ -7,6 +8,33 @@ let nextBtn;
 let endBtn;
 let hintBtn;
 let qIndex = 0;
+var scoreSystem = localStorage.getItem("quizData") || [
+  {
+    name: "test",
+    scoreData: [
+      {
+        label: "Incorrect",
+        data: [1, 0, 0, 0, 0],
+        backgroundColor: window.chartColors.danger,
+        borderColor: "transparent",
+      },
+      {
+        label: "Correct",
+        data: [0, 0, 0, 0, 0],
+        backgroundColor: window.chartColors.primary,
+        borderColor: "transparent",
+      },
+      {
+        label: "Hint Used",
+        data: [0, 0, 0, 0, 0],
+        backgroundColor: window.chartColors.warning,
+        borderColor: "transparent",
+      },
+    ],
+    hiScore: 10,
+  },
+];
+console.log(scoreSystem);
 var questions = [
   {
     title: "W-W-What?",
@@ -134,7 +162,6 @@ function fnCreateRadio() {
   let text = "<br><form id='ansRadio'>";
 
   questions[qIndex].answers.forEach(function (ans, i) {
-    console.log(ans, i);
     text += `<input type="radio" name="answers" id=${i}><label for="${i}">${questions[qIndex].answers[i]}</label><br>`;
   });
 
@@ -167,7 +194,6 @@ function fnCreateQuestion() {
 function fnUpdateCards(event) {
   event.preventDefault();
   let state = event.srcElement.id;
-  console.log(event);
 
   switch (state) {
     case "start":
@@ -182,6 +208,7 @@ function fnUpdateCards(event) {
         questions[j] = temp;
       }
 
+      fnUpdateChart();
       fnCreateQuestion();
       startTimer();
       break;
@@ -213,7 +240,6 @@ function fnUpdateCards(event) {
         for (let j = 0; j <= questions[qIndex].category.length; j++) {
           if (questions[qIndex].category[j] === match) {
             myChart.data.datasets[result].data[i]++;
-            console.log(myChart.data.datasets);
             fnUpdateChart();
           }
         }
@@ -223,9 +249,15 @@ function fnUpdateCards(event) {
       if (result === undefined) {
         // todo : please select an answer
       } else {
-        qIndex++;
-        qIndex >= questions.length ? (qIndex = 0) : 0;
-        fnCreateQuestion();
+        console.log(qIndex);
+        console.log(questions.length);
+        if (qIndex == questions.length - 1) {
+          console.log("finish?");
+          fnEnd("finish");
+        } else {
+          qIndex++;
+          fnCreateQuestion();
+        }
       }
 
       break;
@@ -249,7 +281,7 @@ function fnUpdateCards(event) {
   }
 }
 
-function fnEnd() {
+function fnEnd(state) {
   // button visibility
   nextBtn.setAttribute("style", "display:none;");
   startBtn.setAttribute("style", "display:block;");
@@ -257,9 +289,14 @@ function fnEnd() {
   endBtn.setAttribute("style", "display:none;");
   qHintText.setAttribute("style", "display:block;");
 
-  if (!quizTime) {  // timer ran out
-    qTitle.textContent = "!!!!!!!";
-    qArea.innerHTML = "<h2>You ran out of time!</h2>";
+  switch (state) {
+    case "time": // timer ran out
+      qTitle.textContent = "!!!!!!!";
+      qArea.innerHTML = "<h2>You ran out of time!</h2>";
+      qTimeText.textContent = " Time is up!";
+    case "finish": // timer ran out
+      qTitle.textContent = "Finished!";
+      qArea.innerHTML = "<h2>You ran out of time!</h2>";
   }
 }
 
@@ -270,17 +307,55 @@ function fnUpdateChart() {
   myChart.update(); // update visuals
 }
 
+function fnLogin() {
+  // use local storage
+  console.log(scoreSystem);
+  scoreSystem.forEach(function (entry, i) {
+    if (entry.name === username.value) {
+      myChart.data.datasets = scoreSystem[i].scoreData;
+    } else {
+      scoreSystem[scoreSystem.length] = {
+        name: `${username.value}`,
+        scoreData: [
+          {
+            label: "Incorrect",
+            data: [0, 0, 0, 0, 0],
+            backgroundColor: window.chartColors.danger,
+            borderColor: "transparent",
+          },
+          {
+            label: "Correct",
+            data: [0, 0, 0, 0, 0],
+            backgroundColor: window.chartColors.primary,
+            borderColor: "transparent",
+          },
+          {
+            label: "Hint Used",
+            data: [0, 0, 0, 0, 0],
+            backgroundColor: window.chartColors.warning,
+            borderColor: "transparent",
+          },
+        ],
+        hiScore: 10,
+      };
+      console.log(scoreSystem);
+      myChart.data.datasets = scoreSystem[scoreSystem.length - 1].scoreData;
+    }
+  });
+  console.log(scoreSystem);
+}
+
 // timer
 function startTimer() {
   // time based on number of questions
 
   var timerInterval = setInterval(function () {
     quizTime--;
-    qTimeText.textContent = quizTime + " seconds left till colorsplosion.";
+    qTimeText.textContent = " " + quizTime + " seconds left to finish.";
 
     if (quizTime === 0) {
       clearInterval(timerInterval);
-      fnEnd();
+      fnEnd("time");
     }
   }, 1000);
 }

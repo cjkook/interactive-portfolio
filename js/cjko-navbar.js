@@ -75,7 +75,7 @@ if (page === "index.html" || page === '') {
     <a href="#!" class="menu-toggle">
         <i class="fas fa-bars"></i>
     </a>
-    <a href="index.html" class="spur-logo"><i class="fas fa-motorcycle"></i> <span>cjko.ok</span></a>
+    <a href="../index.html" class="spur-logo"><i class="fas fa-motorcycle"></i> <span>cjko.ok</span></a>
 </header>
 <nav class="dash-nav-list">
     <a href="../index.html" class="dash-nav-item">
@@ -92,6 +92,9 @@ if (page === "index.html" || page === '') {
             <i class="fab fa-js-square"></i> JavaScript </a>
         <div class="dash-nav-dropdown-menu">
             <a href="password-gen.html" class="dash-nav-dropdown-item">Password Generator</a>
+        </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="html/code-quiz.html" class="dash-nav-dropdown-item">Code Quiz</a>
         </div>
     </div>
     

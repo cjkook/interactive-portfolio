@@ -51,12 +51,14 @@
                   <div class="card spur-card">
                     <div class="card-header bg-primary text-white">
                       <div class="spur-card-icon">
-                        <i class="fas fa-image"></i><span id="timeText"> Time Left: 00:00</span> 
+                        <i class="fas fa-image"></i
+                        ><span id="timeText"> Time Left: 00:00</span>
                       </div>
                       <div class="spur-card-title"></div>
                     </div>
                     <div class="card-body">
-                      Keep track of score here.
+                      <label for="fname">Username</label>
+                      <input type="text" id="username" name="fname" />
                     </div>
                   </div>
                 </div>
@@ -81,7 +83,9 @@
                       <div class="spur-card-icon">
                         <i class="fas fa-image"></i>
                       </div>
-                      <div class="spur-card-title" id="qTitle">Are you ready?</div>
+                      <div class="spur-card-title" id="qTitle">
+                        Are you ready?
+                      </div>
                     </div>
                     <div class="card-body" id="qArea"></div>
                     <div class="card-body" id="btnArea"></div>
@@ -94,7 +98,12 @@
                       <div class="spur-card-icon" style="pointer-events: none;">
                         <i class="fas fa-image"></i>
                       </div>
-                      <div class="spur-card-title" style="pointer-events: none;">Hint Section</div>
+                      <div
+                        class="spur-card-title"
+                        style="pointer-events: none;"
+                      >
+                        Hint Section
+                      </div>
                     </div>
                     <div class="card-body" id="hintText">
                       Add a hint here.
