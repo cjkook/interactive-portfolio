@@ -16,9 +16,13 @@ textarea{
 .jumbotron {
   text-align: center;
   background-color: transparent;
-  color: black;
+  /* color: black; */
   border-radius: 0;
   border-bottom: 10px solid black;
+}
+
+.bgimg-1 {
+  background-image: url("../../images//password-gen-img/gen-vertMelt-1.png");
 }
 
 .description{
