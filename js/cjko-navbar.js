@@ -31,6 +31,9 @@ if (page === "index.html" || page === '') {
         <div class="dash-nav-dropdown-menu">
             <a href="html/password-gen.html" class="dash-nav-dropdown-item">Password Generator</a>
         </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="html/code-quiz.html" class="dash-nav-dropdown-item">Code Quiz</a>
+        </div>
     </div>
     
 </nav>
