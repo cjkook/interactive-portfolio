@@ -1,3 +1,4 @@
+var timerInterval;
 let username = document.getElementById("username");
 let qArea = document.getElementById("qArea");
 let qTitle = document.getElementById("qTitle");
@@ -15,27 +16,26 @@ var scoreSystem = JSON.parse(localStorage.getItem("quizData")) || [
       {
         label: "Incorrect",
         data: [1, 0, 0, 0, 0],
-        // backgroundColor: window.chartColors.danger,
+        backgroundColor: window.chartColors.danger,
         borderColor: "transparent",
       },
       {
         label: "Correct",
         data: [0, 0, 0, 0, 0],
-        // backgroundColor: window.chartColors.primary,
+        backgroundColor: window.chartColors.primary,
         borderColor: "transparent",
       },
       {
         label: "Hint Used",
         data: [0, 0, 0, 0, 0],
-        // backgroundColor: window.chartColors.warning,
+        backgroundColor: window.chartColors.warning,
         borderColor: "transparent",
       },
     ],
     hiScore: 10,
   },
 ];
-console.log(scoreSystem);
-localStorage.setItem("quizData", JSON.stringify(scoreSystem));
+
 var questions = [
   {
     title: "W-W-What?",
@@ -66,14 +66,6 @@ var questions = [
     category: ["Mythology"],
     hint: "Think online radio.",
   },
-  {
-    title: "",
-    answers: ["", "", "", ""],
-    correct: "",
-    qText: "",
-    category: [""],
-    hint: "",
-  },
 ];
 let quizTime = questions.length * 5;
 var ctx = document.getElementById("scoreChart").getContext("2d");
@@ -85,19 +77,19 @@ var myChart = new Chart(ctx, {
       {
         label: "Incorrect",
         data: [0, 0, 0, 0, 0],
-        // backgroundColor: window.chartColors.danger,
+        backgroundColor: window.chartColors.danger,
         borderColor: "transparent",
       },
       {
         label: "Correct",
         data: [0, 0, 0, 0, 0],
-        // backgroundColor: window.chartColors.primary,
+        backgroundColor: window.chartColors.primary,
         borderColor: "transparent",
       },
       {
         label: "Hint Used",
         data: [0, 0, 0, 0, 0],
-        // backgroundColor: window.chartColors.warning,
+        backgroundColor: window.chartColors.warning,
         borderColor: "transparent",
       },
     ],
@@ -215,7 +207,6 @@ function fnUpdateCards(event) {
       break;
 
     case "next":
-      console.log("next");
       let col = [...document.getElementById("ansRadio").children];
       let ansBank = [];
       let result;
@@ -250,12 +241,10 @@ function fnUpdateCards(event) {
       if (result === undefined) {
         // todo : please select an answer
       } else {
-        console.log(qIndex);
-        console.log(questions.length);
         if (qIndex == questions.length - 1) {
-          console.log("finish?");
           fnEnd("finish");
         } else {
+          console.log(qIndex);
           qIndex++;
           fnCreateQuestion();
         }
@@ -264,7 +253,6 @@ function fnUpdateCards(event) {
       break;
 
     case "end":
-      console.log("end");
       break;
 
     case "hint":
@@ -292,13 +280,15 @@ function fnEnd(state) {
 
   switch (state) {
     case "time": // timer ran out
+      qHintText.textContent = "Better luck next time.";
       qTitle.textContent = "!!!!!!!";
       qArea.innerHTML = "<h2>You ran out of time!</h2>";
       qTimeText.textContent = " Time is up!";
     case "finish": // timer ran out
-      // fnUpdateData();
+      qHintText.textContent = "Nice!";
+      clearInterval(timerInterval);
       qTitle.textContent = "Finished!";
-      qArea.innerHTML = "<h2>You ran out of time!</h2>";
+      qArea.innerHTML = "<h2>Complete!</h2>";
   }
 }
 
@@ -308,32 +298,18 @@ function fnUpdateChart() {
   myChart.update(); // update visuals
 }
 
-
-function fnUpdateData() {
-  localStorage.setItem(username.value, data);
-}
 // function fnUpdateData() {
-//   scoreSystem.forEach(function (item) {
-//     item.forEach(function (entry, i) {
-//       if(entry.hidden) {
-//         console.log('hidden data')
-//       }
-//     })
-//   })
-  
-//   console.log(scoreSystem)
-//   let data = JSON.stringify(scoreSystem)
+//   // let data = JSON.stringify(scoreSystem)
 //   scoreSystem.forEach(function (entry, i) {
 //     if (entry.name === username.value) {
-//       console.log("save");
-//       localStorage.setItem("quizData", data);
+//       console.log(entry);
+//       // localStorage.setItem("quizData", data);
 //     }
 //   });
 // }
 
 function fnLogin() {
   let userFound = 0;
-  console.log(scoreSystem);
   scoreSystem.forEach(function (entry, i) {
     if (entry.name === username.value) {
       userFound = 1;
@@ -347,29 +323,27 @@ function fnLogin() {
         {
           label: "Incorrect",
           data: [0, 0, 0, 0, 0],
-          // backgroundColor: window.chartColors.danger,
+          backgroundColor: window.chartColors.danger,
           borderColor: "transparent",
         },
         {
           label: "Correct",
           data: [0, 0, 0, 0, 0],
-          // backgroundColor: window.chartColors.primary,
+          backgroundColor: window.chartColors.primary,
           borderColor: "transparent",
         },
         {
           label: "Hint Used",
           data: [0, 0, 0, 0, 0],
-          // backgroundColor: window.chartColors.warning,
+          backgroundColor: window.chartColors.warning,
           borderColor: "transparent",
         },
       ],
       hiScore: 0,
     };
-    console.log(scoreSystem);
+    console.log("login: ", scoreSystem);
     myChart.data.datasets = scoreSystem[scoreSystem.length - 1].scoreData;
   }
-
-  console.log(scoreSystem);
 }
 
 // localStorage.setItem("quizData", scoreSystem);
@@ -378,7 +352,7 @@ function fnLogin() {
 function startTimer() {
   // time based on number of questions
 
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     quizTime--;
     qTimeText.textContent = " " + quizTime + " seconds left to finish.";
 
