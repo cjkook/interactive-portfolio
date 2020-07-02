@@ -34,6 +34,9 @@ if (page === "index.html" || page === '') {
         <div class="dash-nav-dropdown-menu">
             <a href="html/code-quiz.html" class="dash-nav-dropdown-item">Code Quiz</a>
         </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="html/day-planner.html" class="dash-nav-dropdown-item">Day Planner</a>
+        </div>
     </div>
     
 </nav>
@@ -94,7 +97,10 @@ if (page === "index.html" || page === '') {
             <a href="password-gen.html" class="dash-nav-dropdown-item">Password Generator</a>
         </div>
         <div class="dash-nav-dropdown-menu">
-            <a href="html/code-quiz.html" class="dash-nav-dropdown-item">Code Quiz</a>
+            <a href="code-quiz.html" class="dash-nav-dropdown-item">Code Quiz</a>
+        </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="day-planner.html" class="dash-nav-dropdown-item">Day Planner</a>
         </div>
     </div>
     
