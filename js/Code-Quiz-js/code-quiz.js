@@ -221,6 +221,7 @@ function fnUpdateCards(event) {
             result = 1;
           } else {
             result = 0;
+            quizTime -= 2
           }
         } else {
           // todo : please select an answer
@@ -244,7 +245,6 @@ function fnUpdateCards(event) {
         if (qIndex == questions.length - 1) {
           fnEnd("finish");
         } else {
-          console.log(qIndex);
           qIndex++;
           fnCreateQuestion();
         }
