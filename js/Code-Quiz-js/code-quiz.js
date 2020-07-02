@@ -4,6 +4,7 @@ let qArea = document.getElementById("qArea");
 let qTitle = document.getElementById("qTitle");
 let qHintText = document.getElementById("hintText");
 let qTimeText = document.getElementById("timeText");
+let qhintTitle = document.getElementById("hintTitle")
 let startBtn;
 let nextBtn;
 let endBtn;
@@ -72,7 +73,7 @@ var ctx = document.getElementById("scoreChart").getContext("2d");
 var myChart = new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["Technology", "Pop Culture", "Mythology", "Thursday", "Friday"],
+    labels: ["Technology", "Pop Culture", "Mythology",],
     datasets: [
       {
         label: "Incorrect",
@@ -192,6 +193,7 @@ function fnUpdateCards(event) {
     case "start":
       qIndex = 0;
       quizTime = questions.length * 5;
+      qhintTitle.textContent = "Click here for a hint"
 
       // shuffle question objects
       for (let i = questions.length - 1; i > 0; i--) {
