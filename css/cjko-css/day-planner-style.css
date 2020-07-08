@@ -1,16 +1,20 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
-textarea{
+textarea {
   background: transparent;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+}
+
+td {
+  padding: auto;
 }
 
 .jumbotron {
@@ -25,11 +29,21 @@ textarea{
   background-image: url("../../images//password-gen-img/gen-vertMelt-1.png");
 }
 
-.description{
+.row-business {
+  background-color: #77dd77;
+  opacity: 0.8;
+}
+
+.row-current {
+  background-color: #010201;
+  opacity: 0.8;
+}
+
+.description {
   white-space: pre-wrap;
 }
 
-.time-block{
+.time-block {
   text-align: center;
   border-radius: 15px;
 }
@@ -37,7 +51,7 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .hour {
@@ -65,11 +79,11 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #06aed5;
   color: white;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }

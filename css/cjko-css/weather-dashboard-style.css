@@ -1,0 +1,10 @@
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+  /* color: black; */
+  border-radius: 0;
+  border-bottom: 10px solid black;
+}
+.bgimg-1 {
+  background-image: url("../../images/weather-img/weather-img1.png");
+}

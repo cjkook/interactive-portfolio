@@ -37,6 +37,9 @@ if (page === "index.html" || page === '') {
         <div class="dash-nav-dropdown-menu">
             <a href="html/day-planner.html" class="dash-nav-dropdown-item">Day Planner</a>
         </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="html/weather-dashboard.html" class="dash-nav-dropdown-item">Weather Dash</a>
+        </div>
     </div>
     
 </nav>
@@ -101,6 +104,9 @@ if (page === "index.html" || page === '') {
         </div>
         <div class="dash-nav-dropdown-menu">
             <a href="day-planner.html" class="dash-nav-dropdown-item">Day Planner</a>
+        </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="weather-dashboard.html" class="dash-nav-dropdown-item">Weather Dash</a>
         </div>
     </div>
     

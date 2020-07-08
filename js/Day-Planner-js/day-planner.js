@@ -30,7 +30,7 @@ function fnBuild() {
       let textArea = $("<input>");
 
       // color row
-      if (i == current.hour) {
+      if (h == current.hour) {
       } else {
       }
     },
@@ -49,22 +49,25 @@ function fnBuild() {
   let numHours = 24;
 
   // table header
-  let tableHead = $("<div>");
-  tableHead.addClass("table-header");
+  let table = $("<table>");
+  table.addClass("table table-dark");
   colHeadings.forEach(function (head) {
-    let col = $("<div>");
-    col.addClass("table-header-col");
+    let col = $("<th>");
+    col.addClass("thead-dark");
     col.text(head);
+    table.append(col)
   });
+  $("#hourBlockArea").append(table)
+
 
   // create rows
   for (let i = 0; i <= numHours - 1; i++) {
-    let row = $("<div>");
+    let row = $("<tr>");
     row.addClass("row");
     row.attr("id", i);
 
     // coloring
-    if (i >= 9 || i <= 17) {
+    if (i >= 9 && i <= 17) {
       row.addClass("row-business");
     }
     if (i == current.hour) {
@@ -73,7 +76,7 @@ function fnBuild() {
 
     // add different types of info to each column
     rowFunctions.forEach(function (func, index) {
-      let col = $("<div>");
+      let col = $("<td>");
       col.addClass("col-sm-3");
       func(i, col);
       row.append(col);
@@ -81,18 +84,6 @@ function fnBuild() {
 
     // add rows
     $("#hourBlockArea").append(row);
-
-    // let newBtn = $("<button>");
-    // newBtn.addClass("letter-button letter letter-button-color");
-    // newBtn.attr("data-letter", `${letters[i]}`);
-    // newBtn.text(letters[i]);
-    // $("#buttons").append(newBtn);
-    // <div class="row">
-    //   <div class="col-sm-3">${current.hour}${current.half}</div>
-    //   <div class="col-sm-3" id=${i+1}>test</div>
-    //   <div class="col-sm-3">test</div>
-    //   <div class="col-sm-3">test</div>
-    // </div>;
   }
 }
 

@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,10 +23,10 @@
       rel="javascript"
     />
     <link rel="stylesheet" href="../css/spur.css" />
-    <link rel="stylesheet" href="../css/cjko-css/day-planner-style.css" />
+    <link rel="stylesheet" href="../css/cjko-css/weather-dashboard-style.css" />
     <link href="../css/cjko-css/nav-style.css" rel="stylesheet" />
 
-    <title>Work Day Scheduler</title>
+    <title>Weather Dashboard</title>
   </head>
 
   <body>
@@ -39,23 +38,17 @@
         <header class="dash-toolbar" id="commonToolbar"></header>
 
         <!-- main content  -->
-        <main class="dash-content-fluid" style="">
+        <main class="dash-content-fluid">
           <div class="bgimg-1">
             <header class="jumbotron">
-              <h1 class="display-3">Work Day Scheduler</h1>
-              <p class="lead">
-                A simple calendar app for scheduling your work day
-              </p>
-              <p id="currentDay" class="lead"></p>
+              
             </header>
           </div>
 
           <div
-            id="hourBlockArea"
-            class="container bgimg-1"
-            style="padding: 0px; opacity: 0.6;"
+            id="content-area"
+            style="padding: 20px;"
           >
-            <!-- Timeblocks go here -->
           </div>
         </main>
       </div>
@@ -83,7 +76,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <!-- day planner script  -->
-    <script src="../js/Day-Planner-js/day-planner.js"></script>
+    <script src="../js/weather-dashboard-js/weather-dashboard.js"></script>
+
 
     <!-- cjko website self-build scripts -->
     <script src="../js/cjko-navbar.js" type="text/javascript"></script>
