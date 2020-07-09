@@ -144,6 +144,32 @@ function fnAJAX(city, format) {
         panel.append(card);
         break;
       case "Future": // build multiple cards
+        let row = $("<div class='row fluid'>");
+        for (let i = 0; i <= res.list.length; i += 8) {
+          let txt;
+          // build each card
+          let card = $("<div class='card'>");
+          // title/date
+          let cardTitle = $("<div class='card-header'>");
+          txt = res.list[i].dt_txt.split(" ");
+          cardTitle.text(txt[0]);
+
+          // weather data
+          let cardBody = $("<div class='card-body'>");
+          let cardBodyText = `<ul class="list-group list-group-flush">
+    <li class="list-group-item">Temperature: ${res.list[i].main.temp}</li>
+    <li class="list-group-item">Feels Like: ${res.list[i].main.feels_like}</li>
+    <li class="list-group-item">
+    Weather: ${res.list[i].weather[0].description}
+    <img src="http://openweathermap.org/img/wn/${res.list[i].weather[0].icon}@2x.png"/>
+    </li>
+  </ul>`;
+          cardBody.html(cardBodyText);
+          card.append(cardTitle);
+          card.append(cardBody);
+          row.append(card)
+          panel.append(card);
+        }
         break;
     }
   });
