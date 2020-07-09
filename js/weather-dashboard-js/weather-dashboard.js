@@ -41,16 +41,16 @@ function fnBuild() {
   row.append(infoPanel);
   $("#content-area").append(row);
 
-  let subRow = $("<div id='cities-col' class='btn-group-vertical'>");
-  subRow.attr("style", "padding: 10px; margin: 10px;");
-  col.append(subRow);
-
   // build rows based on localstorage and API data
   fnBuildCityList();
 }
 
 // make saved city list
 function fnBuildCityList() {
+  $("#cityList").empty();
+  let subRow = $("<div id='cities-col' class='btn-group-vertical'>");
+  subRow.attr("style", "padding: 10px; margin: 10px;");
+  $("#cityList").append(subRow);
   localCities.forEach(function (entry, i) {
     let btn = $("<button class='btn btn-primary'>");
     btn.text(entry);
@@ -80,7 +80,6 @@ $("button").on("click", function () {
         localCities.push(newCity);
         lastCityClicked = newCity;
 
-        $("#cities-col").empty();
         fnBuildCityList();
         break;
       case "Current":
@@ -167,7 +166,7 @@ function fnAJAX(city, format) {
           cardBody.html(cardBodyText);
           card.append(cardTitle);
           card.append(cardBody);
-          row.append(card)
+          row.append(card);
           panel.append(card);
         }
         break;
