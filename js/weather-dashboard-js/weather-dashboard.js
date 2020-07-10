@@ -1,8 +1,4 @@
-// let localCities = JSON.parse(localStorage.getItem("weatherData")) ||= {[
-//   "denver",
-//   "albuquerque",
-//   "new york",
-// ]};
+let defaultCities = JSON.parse(localStorage.getItem("weatherData")) || "Tokyo,Denver,New York,London"
 
 let lastCityClicked = "";
 let dataTypeQuery = "Current";
@@ -47,17 +43,14 @@ function fnBuild() {
 
 // make saved city list // ! not working after adding new city
 function fnBuildCityList() {
-  let localCities = localStorage.getItem("weatherData").split(",") || [
-    "denver",
-    "albuquerque",
-    "new york",
-  ];
+  let localCities = localStorage.getItem("weatherData") || defaultCities
+  console.log(localCities)
   JSON.stringify(localStorage.setItem("weatherData", localCities))
   $("#cityList").empty();
   let subRow = $("<div id='cities-col' class='btn-group-vertical'>");
   subRow.attr("style", "padding: 10px; margin: 10px;");
   $("#cityList").append(subRow);
-  localCities.forEach(function (entry, i) {
+  localCities.split(",").forEach(function (entry, i) {
     let btn = $("<button class='btn btn-primary'>"); // ! When button is created a second time, no click events register
     btn.text(entry);
     btn.attr("data-name", entry);
@@ -144,7 +137,6 @@ function fnAJAX(city, format) {
     Weather: ${res.weather[0].description}
     <img src="http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png"/>
     </li>
-    <li class="list-group-item">Vestibulum at eros</li>
   </ul>`;
         cardBody.html(cardBodyText);
         card.append(cardTitle);
