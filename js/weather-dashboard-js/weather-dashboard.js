@@ -1,4 +1,4 @@
-let defaultCities = JSON.parse(localStorage.getItem("weatherData")) || "Tokyo,Denver,New York,London"
+let defaultCities = localStorage.getItem("weatherData") || "Tokyo,Denver,New York,London"
 
 let lastCityClicked = "";
 let dataTypeQuery = "Current";
