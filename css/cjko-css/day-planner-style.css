@@ -5,7 +5,7 @@ body {
 }
 
 textarea {
-  background: transparent;
+  /* background: transparent; */
   border: none;
   resize: none;
   color: #000000;
@@ -26,11 +26,16 @@ td {
 }
 
 .bgimg-1 {
-  background-image: url("../../images//password-gen-img/gen-vertMelt-1.png");
+  /* background-image: url("../../images//password-gen-img/gen-vertMelt-1.png"); */
 }
 
 .row-business {
   background-color: #77dd77;
+  opacity: 0.8;
+}
+
+.row-prev-business {
+  background-color: #ebce4f;
   opacity: 0.8;
 }
 

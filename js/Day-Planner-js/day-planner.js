@@ -24,25 +24,28 @@ function fnBuild() {
       c.attr("id", `item-${h}`);
     },
     function (h, c) {
-      // ! get appointment from localstorage by hour
-
+      // appointment name
       // create edit area
-      let textArea = $("<input>");
-
-      // color row
-      if (h == current.hour) {
-      } else {
-      }
+      let textArea = $(`<textarea id="appt-${h}">`);
+      c.append(textArea)
+      // ! get appointment from localstorage by hour
+      textArea.text("naw")
     },
     function (h, c) {
-      // ! notes
+      // notes
+      // create edit area
+      let textArea = $(`<textarea id="appt-notes-${h}">`);
+      c.append(textArea)
+      // ! get appointment from localstorage by hour
+      textArea.text("naw")
     },
     function (h, c) {
-      // ! save button
+      // save button
       let btn = $("<button>");
       btn.addClass("");
-      btn.attr(`save-${h}`);
+      btn.attr("id",`save-${h}`);
       btn.text("Save");
+      c.append(btn)
     },
   ];
   let colHeadings = ["Hour","Appointment","Notes","Save"]
@@ -72,6 +75,8 @@ function fnBuild() {
     }
     if (i == current.hour) {
       row.addClass("row-current");
+    } else if((i<current.hour)&&(i>=9)) {
+      row.addClass("row-prev-business")
     }
 
     // add different types of info to each column
@@ -118,4 +123,6 @@ function fnUpdateTime() {
     }
   });
   console.log(current);
+
+  $("#day-title").text(`${current.day}, ${current.month} ${current.ordinal}`)
 }
