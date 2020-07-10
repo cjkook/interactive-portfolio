@@ -1,8 +1,8 @@
-let localCities = JSON.parse(localStorage.getItem("quizData")) || [
-  "denver",
-  "albuquerque",
-  "new york",
-];
+// let localCities = JSON.parse(localStorage.getItem("weatherData")) ||= {[
+//   "denver",
+//   "albuquerque",
+//   "new york",
+// ]};
 
 let lastCityClicked = "";
 let dataTypeQuery = "Current";
@@ -45,14 +45,20 @@ function fnBuild() {
   fnBuildCityList();
 }
 
-// make saved city list
+// make saved city list // ! not working after adding new city
 function fnBuildCityList() {
+  let localCities = localStorage.getItem("weatherData").split(",") || [
+    "denver",
+    "albuquerque",
+    "new york",
+  ];
+  JSON.stringify(localStorage.setItem("weatherData", localCities))
   $("#cityList").empty();
   let subRow = $("<div id='cities-col' class='btn-group-vertical'>");
   subRow.attr("style", "padding: 10px; margin: 10px;");
   $("#cityList").append(subRow);
   localCities.forEach(function (entry, i) {
-    let btn = $("<button class='btn btn-primary'>");
+    let btn = $("<button class='btn btn-primary'>"); // ! When button is created a second time, no click events register
     btn.text(entry);
     btn.attr("data-name", entry);
     $("#cities-col").append(btn);
@@ -65,19 +71,22 @@ $("button").on("click", function () {
   // catch all existing cities
   if ($(this).hasClass("btn-primary")) {
     lastCityClicked = $(this).attr("data-name");
-    console.log(lastCityClicked);
+    // console.log(lastCityClicked);
     dataTypeQuery = "Current";
     fnAJAX(lastCityClicked, dataTypeQuery);
   } else if ($("#Add")) {
-    // change data query
+    // change action
     dataTypeQuery = $(this).text();
 
     switch (dataTypeQuery) {
       case "Add":
+        let localCities = localStorage.getItem("weatherData").split(",")
+        // console.log(localCities)
         let newCity = $("#addText").val();
         fnAJAX(newCity, "Add");
 
         localCities.push(newCity);
+        JSON.stringify(localStorage.setItem("weatherData", localCities))
         lastCityClicked = newCity;
 
         fnBuildCityList();
@@ -95,7 +104,7 @@ $("button").on("click", function () {
 
 function fnAJAX(city, format) {
   let apiKey = "a3325dbe8851063418f38285481e3fa5";
-  console.log(city, format);
+  // console.log(city, format);
   let urlQuery;
   switch (format) {
     case "Current":
@@ -113,7 +122,7 @@ function fnAJAX(city, format) {
     method: "GET",
   }).then(function (res) {
     let panel = $("#infoPanel");
-    console.log(res);
+    // console.log(res);
 
     switch (format) {
       case "Add":
@@ -145,13 +154,15 @@ function fnAJAX(city, format) {
       case "Future": // build multiple cards
         let row = $("<div class='row fluid'>");
         for (let i = 0; i <= res.list.length; i += 8) {
-          let txt;
+          let txt = [];
           // build each card
           let card = $("<div class='card'>");
           // title/date
           let cardTitle = $("<div class='card-header'>");
-          txt = res.list[i].dt_txt.split(" ");
-          cardTitle.text(txt[0]);
+          txt = res.city.name
+          
+          txt += " " + res.list[i].dt_txt.split(" ")[0];
+          cardTitle.text(txt);
 
           // weather data
           let cardBody = $("<div class='card-body'>");
