@@ -12,9 +12,9 @@ This is a standalone web page showcasing a variety of techniques, concepts, and 
 * [Bootstrap Theme](https://cjkook.github.io/02-homework-bootstrap-portfolio/)
 * [Password Generator](https://cjkook.github.io/interactive-portfolio/html/password-gen.html)
 * [Code Quiz](https://cjkook.github.io/interactive-portfolio/html/code-quiz.html)
+* [Day Planner](https://cjkook.github.io/interactive-portfolio/html/day-planner.html)
+* [Weather Dashboard](https://cjkook.github.io/interactive-portfolio/html/weather-dashboard.html)
 
 ## Credits
 Created by Corey J. Kothenbeutel<br/>
 Artwork by Corey J. Kothenbeutel
-Code Quiz trivia found [here](https://thoughtcatalog.com/samantha-newman/2020/03/250-best-trivia-questions/).
-Uses [Spur Template](https://hackerthemes.com/bootstrap-templates/spur/).
