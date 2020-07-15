@@ -3,11 +3,11 @@ var navBar = "";
 var toolbar = "";
 var path = window.location.pathname;
 var page = path.split("/").pop();
-console.log( page );
+console.log(page);
 // console.log('cjko: navbar create ')
 
 // pathing changes for index.html versus subpages
-if (page === "index.html" || page === '') {
+if (page === "index.html" || page === "") {
   navBar = `<div class="dash-nav dash-nav-dark">
 <header>
     <a href="#!" class="menu-toggle">
@@ -18,6 +18,13 @@ if (page === "index.html" || page === '') {
 <nav class="dash-nav-list">
     <a href="index.html" class="dash-nav-item">
         <i class="fas fa-home"></i> Dashboard </a>
+    <div class="dash-nav-dropdown ">
+        <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+            <i class="fas fa-cube"></i> Projects </a>
+        <div class="dash-nav-dropdown-menu">
+            <a href="https://miradetm.github.io/DU-project-1/" class="dash-nav-dropdown-item">Elifino</a>
+        </div>
+    </div>
     <div class="dash-nav-dropdown ">
         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
             <i class="fas fa-cube"></i> Themes/Design </a>
@@ -74,9 +81,9 @@ if (page === "index.html" || page === '') {
             </div>
         </div> -->
     </div>`;
-} else { 
-    // ALL OTHER SUBPAGES 
-    navBar = `<div class="dash-nav dash-nav-dark">
+} else {
+  // ALL OTHER SUBPAGES
+  navBar = `<div class="dash-nav dash-nav-dark">
 <header>
     <a href="#!" class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -86,6 +93,13 @@ if (page === "index.html" || page === '') {
 <nav class="dash-nav-list">
     <a href="../index.html" class="dash-nav-item">
         <i class="fas fa-home"></i> Dashboard </a>
+    <div class="dash-nav-dropdown ">
+        <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+            <i class="fas fa-cube"></i> Projects </a>
+        <div class="dash-nav-dropdown-menu">
+            <a href="https://miradetm.github.io/DU-project-1/" class="dash-nav-dropdown-item">Elifino</a>
+        </div>
+    </div>
     <div class="dash-nav-dropdown ">
         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
             <i class="fas fa-cube"></i> Themes/Design </a>
@@ -113,7 +127,7 @@ if (page === "index.html" || page === '') {
 </nav>
 </div>`;
 
-toolbar = `<a href="#!" class="menu-toggle">
+  toolbar = `<a href="#!" class="menu-toggle">
         <i class="fas fa-bars"></i>
     </a>
     <!-- <a href="#!" class="searchbox-toggle">
@@ -142,7 +156,6 @@ toolbar = `<a href="#!" class="menu-toggle">
             </div>
         </div> -->
     </div>`;
-
 }
 
 // populate elements

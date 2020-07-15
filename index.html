@@ -34,236 +34,527 @@
         <header class="dash-toolbar" id="commonToolbar"></header>
 
         <!-- main content  -->
-        <!-- TODO: ADD MASONRY STACKING SEEN HERE: https://getbootstrap.com/docs/4.1/components/card/#card-columns -->
-        <!-- TODO: ADD SPECKLED BG TO 'dash-content' using P5.js -->
-        <main class="dash-content bgimg-1"> 
-          <div class="container-fluid">
-            <div class="row dash-row">
-              <!-- Code Quiz -->
-              <div class="col-lg-4">
-                <div class="card spur-card">
-                  <div class="card-header">
-                    <div class="spur-card-icon">
-                      <i class="fab fa-js-square"></i>
+        <main class="dash-content bgimg-1">
+          <!-- TODO: shuffle card objects -->
+          <div class="card-columns dash-row" id="cardGallery">
+            <!-- project 1 -->
+            <div class="card spur-card">
+              <div class="card-header">
+                <div class="spur-card-icon">
+                  <i class="fab fa-cube"></i>
+                </div>
+                <div class="spur-card-title">Elifino</div>
+                <div class="spur-card-menu">
+                  <div class="dropdown show">
+                    <a
+                      class="spur-card-menu-link"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a class="dropdown-item" href="https://miradetm.github.io/DU-project-1/"
+                        ><i class="fas fa-image"></i>View Page</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="https://github.com/MiradeTM/DU-project-1"
+                        ><i class="fab fa-github"></i>Github Repository</a
+                      >
                     </div>
-                    <div class="spur-card-title">Code Quiz</div>
-                    <div class="spur-card-menu">
-                      <div class="dropdown show">
-                        <a
-                          class="spur-card-menu-link"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                        </a>
-                        <div
-                          class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <a class="dropdown-item" href="html/code-quiz.html"
-                            ><i class="fas fa-image"></i>Demo</a
-                          >
-                          <a class="dropdown-item" href="https://github.com/cjkook/interactive-portfolio"
-                            ><i class="fab fa-github"></i>Github Repository</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="html/code-quiz.html"><img 
-                    src="images/code-q/quizimg-1.png"
-                    class="img-fluid"
-                  /></a>
-                  <div class="card-body">
-                    Just a card that can be used to display some content,
-                    graphs, tables, and so on.
                   </div>
                 </div>
               </div>
-              <!-- password generator -->
-              <div class="col-lg-4">
-                <div class="card spur-card">
-                  <div class="card-header">
-                    <div class="spur-card-icon">
-                      <i class="fab fa-js-square"></i>
-                    </div>
-                    <div class="spur-card-title">Password Generator</div>
-                    <div class="spur-card-menu">
-                      <div class="dropdown show">
-                        <a
-                          class="spur-card-menu-link"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                        </a>
-                        <div
-                          class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-image"></i>Demo</a
-                          >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fab fa-github"></i>Github Repository</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    src="images/password-gen-img/gen-vertMelt-1.png"
-                    class="img-fluid"
-                  />
-                  <div class="card-body">
-                    Just a card that can be used to display some content,
-                    graphs, tables, and so on.
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Coffee Theme -->
-              <div class="col-lg-4">
-                <div class="card spur-card">
-                  <div class="card-header">
-                    <div class="spur-card-icon">
-                      <i class="fas fa-image"></i>
-                    </div>
-                    <div class="spur-card-title">Coffee Bootstrap Template</div>
-                    <div class="spur-card-menu">
-                      <div class="dropdown show">
-                        <a
-                          class="spur-card-menu-link"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                        </a>
-                        <div
-                          class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-image"></i>Demo</a
-                          >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fab fa-github"></i>Github Repository</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="https://cjkook.github.io/02-homework-bootstrap-portfolio/"><img
-                    src="images/bootstrap-temp/gen-image-1.png"
-                    class="img-fluid"
-                  /></a>
-                  <div class="card-body">
-                    Just a card that can be used to display some content,
-                    graphs, tables, and so on.
-                  </div>
-                </div>
+              <img
+                class="card-img-top"
+                src="images/project-1/jumbo-1.png"
+                alt=""
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">July 2020</small>
+                </p>
               </div>
             </div>
-
-
-            
-            <!-- row two  -->
-            <div class="row dash-row">
-              <div class="col-lg-4">
-                <!-- day planner -->
-                <div class="card spur-card">
-                  <div class="card-header">
-                    <div class="spur-card-icon">
-                      <i class="fas fa-image"></i>
+            <!-- password gen -->
+            <div class="card spur-card">
+              <div class="card-header">
+                <div class="spur-card-icon">
+                  <i class="fab fa-js-square"></i>
+                </div>
+                <div class="spur-card-title">Password Generator</div>
+                <div class="spur-card-menu">
+                  <div class="dropdown show">
+                    <a
+                      class="spur-card-menu-link"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a class="dropdown-item" href="html/password-gen.html"
+                        ><i class="fas fa-image"></i>Demo</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="https://github.com/cjkook/interactive-portfolio"
+                        ><i class="fab fa-github"></i>Github Repository</a
+                      >
                     </div>
-                    <div class="spur-card-title">Day Planner</div>
-                    <!-- <div class="spur-card-menu">
-                      <div class="dropdown show">
-                        <a
-                          class="spur-card-menu-link"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                        </a>
-                        <div
-                          class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-image"></i>Demo</a
-                          >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fab fa-github"></i>Github Repository</a
-                          >
-                        </div>
-                      </div>
-                    </div> -->
-                  </div>
-                  <img
-                    src="images/dayplan-img/day-01.png"
-                    class="img-fluid"
-                  />
-                  <div class="card-body">
-                    Just a card that can be used to display some content,
-                    graphs, tables, and so on.
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <!-- Weather Dashboard -->
-                <div class="card spur-card">
-                  <div class="card-header">
-                    <div class="spur-card-icon">
-                      <i class="fas fa-image"></i>
+              <img
+                class="card-img-top"
+                src="images/password-gen-img/gen-vertMelt-1.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">June 2020</small>
+                </p>
+              </div>
+            </div>
+            <!-- code quiz -->
+            <div class="card spur-card">
+              <div class="card-header">
+                <div class="spur-card-icon">
+                  <i class="fab fa-js-square"></i>
+                </div>
+                <div class="spur-card-title">Code Quiz</div>
+                <div class="spur-card-menu">
+                  <div class="dropdown show">
+                    <a
+                      class="spur-card-menu-link"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a class="dropdown-item" href="html/code-quiz.html"
+                        ><i class="fas fa-image"></i>Demo</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="https://github.com/cjkook/interactive-portfolio"
+                        ><i class="fab fa-github"></i>Github Repository</a
+                      >
                     </div>
-                    <div class="spur-card-title">Weather Dashboard</div>
-                    <!-- <div class="spur-card-menu">
-                      <div class="dropdown show">
-                        <a
-                          class="spur-card-menu-link"
-                          href="#"
-                          role="button"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                        </a>
-                        <div
-                          class="dropdown-menu dropdown-menu-right"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fas fa-image"></i>Demo</a
-                          >
-                          <a class="dropdown-item" href="#"
-                            ><i class="fab fa-github"></i>Github Repository</a
-                          >
-                        </div>
-                      </div>
-                    </div> -->
-                  </div>
-                  <img
-                    src="images/weather-img/weather-img1.png"
-                    class="img-fluid"
-                  />
-                  <div class="card-body">
-                    Just a card that can be used to display some content,
-                    graphs, tables, and so on.
                   </div>
                 </div>
+              </div>
+              <img
+                class="card-img-top"
+                src="images/code-q/quizimg-1.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">June 2020</small>
+                </p>
+              </div>
+            </div>
+            <!-- ! rebrand this name -->
+            <!-- coffee theme -->
+            <div class="card spur-card">
+              <div class="card-header">
+                <div class="spur-card-icon">
+                  <i class="fas fa-image"></i>
+                </div>
+                <div class="spur-card-title">Coffee Theme</div>
+                <div class="spur-card-menu">
+                  <div class="dropdown show">
+                    <a
+                      class="spur-card-menu-link"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a class="dropdown-item" href="https://cjkook.github.io/02-homework-bootstrap-portfolio/"
+                        ><i class="fas fa-image"></i>Demo</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <img
+                class="card-img-top"
+                src="images/bootstrap-temp/gen-image-4.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">June 2020</small>
+                </p>
+              </div>
+            </div>
+            <!-- day planner -->
+            <div class="card spur-card">
+              <div class="card-header">
+                <div class="spur-card-icon">
+                  <i class="fab fa-js-square"></i>
+                </div>
+                <div class="spur-card-title">Day Planner</div>
+                <div class="spur-card-menu">
+                  <div class="dropdown show">
+                    <a
+                      class="spur-card-menu-link"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a class="dropdown-item" href="html/day-planner.html"
+                        ><i class="fas fa-image"></i>Demo</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="https://github.com/cjkook/interactive-portfolio"
+                        ><i class="fab fa-github"></i>Github Repository</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <img
+                class="card-img-top"
+                src="images/dayplan-img/day-01.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">June 2020</small>
+                </p>
+              </div>
+            </div>
+            <!-- weather dashboard -->
+            <div class="card spur-card">
+              <div class="card-header">
+                <div class="spur-card-icon">
+                  <i class="fab fa-js-square"></i>
+                </div>
+                <div class="spur-card-title">Weather Dashboard</div>
+                <div class="spur-card-menu">
+                  <div class="dropdown show">
+                    <a
+                      class="spur-card-menu-link"
+                      href="#"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-right"
+                      aria-labelledby="dropdownMenuLink"
+                    >
+                      <a class="dropdown-item" href="html/weather-dashboard.html"
+                        ><i class="fas fa-image"></i>Demo</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        href="https://github.com/cjkook/interactive-portfolio"
+                        ><i class="fab fa-github"></i>Github Repository</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <img
+                class="card-img-top"
+                src="images/weather-img/weather-img1.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">June 2020</small>
+                </p>
               </div>
             </div>
           </div>
         </main>
+        <!-- TODO: ADD SPECKLED BG TO 'dash-content' using P5.js -->
+
+        <div class="container-fluid">
+          <div class="row dash-row">
+            <!-- Code Quiz -->
+            <div class="col-lg-4">
+              <div class="card spur-card">
+                <div class="card-header">
+                  <div class="spur-card-icon">
+                    <i class="fab fa-js-square"></i>
+                  </div>
+                  <div class="spur-card-title">Code Quiz</div>
+                  <div class="spur-card-menu">
+                    <div class="dropdown show">
+                      <a
+                        class="spur-card-menu-link"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                      </a>
+                      <div
+                        class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="dropdownMenuLink"
+                      >
+                        <a class="dropdown-item" href="html/code-quiz.html"
+                          ><i class="fas fa-image"></i>Demo</a
+                        >
+                        <a
+                          class="dropdown-item"
+                          href="https://github.com/cjkook/interactive-portfolio"
+                          ><i class="fab fa-github"></i>Github Repository</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="html/code-quiz.html"
+                  ><img src="images/code-q/quizimg-1.png" class="img-fluid"
+                /></a>
+                <div class="card-body">
+                  Just a card that can be used to display some content, graphs,
+                  tables, and so on.
+                </div>
+              </div>
+            </div>
+            <!-- password generator -->
+            <div class="col-lg-4">
+              <div class="card spur-card">
+                <div class="card-header">
+                  <div class="spur-card-icon">
+                    <i class="fab fa-js-square"></i>
+                  </div>
+                  <div class="spur-card-title">Password Generator</div>
+                  <div class="spur-card-menu">
+                    <div class="dropdown show">
+                      <a
+                        class="spur-card-menu-link"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                      </a>
+                      <div
+                        class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="dropdownMenuLink"
+                      >
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-image"></i>Demo</a
+                        >
+                        <a class="dropdown-item" href="#"
+                          ><i class="fab fa-github"></i>Github Repository</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="images/password-gen-img/gen-vertMelt-1.png"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  Just a card that can be used to display some content, graphs,
+                  tables, and so on.
+                </div>
+              </div>
+            </div>
+
+            <!-- Coffee Theme -->
+            <div class="col-lg-4">
+              <div class="card spur-card">
+                <div class="card-header">
+                  <div class="spur-card-icon">
+                    <i class="fas fa-image"></i>
+                  </div>
+                  <div class="spur-card-title">Coffee Bootstrap Template</div>
+                  <div class="spur-card-menu">
+                    <div class="dropdown show">
+                      <a
+                        class="spur-card-menu-link"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                      </a>
+                      <div
+                        class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="dropdownMenuLink"
+                      >
+                        <a class="dropdown-item" href="#"
+                          ><i class="fas fa-image"></i>Demo</a
+                        >
+                        <a class="dropdown-item" href="#"
+                          ><i class="fab fa-github"></i>Github Repository</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href="https://cjkook.github.io/02-homework-bootstrap-portfolio/"
+                  ><img
+                    src="images/bootstrap-temp/gen-image-1.png"
+                    class="img-fluid"
+                /></a>
+                <div class="card-body">
+                  Just a card that can be used to display some content, graphs,
+                  tables, and so on.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- row two  -->
+          <div class="row dash-row">
+            <div class="col-lg-4">
+              <!-- day planner -->
+              <div class="card spur-card">
+                <div class="card-header">
+                  <div class="spur-card-icon">
+                    <i class="fas fa-image"></i>
+                  </div>
+                  <div class="spur-card-title">Day Planner</div>
+                  <!-- <div class="spur-card-menu">
+                      <div class="dropdown show">
+                        <a
+                          class="spur-card-menu-link"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                        </a>
+                        <div
+                          class="dropdown-menu dropdown-menu-right"
+                          aria-labelledby="dropdownMenuLink"
+                        >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fa-image"></i>Demo</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fab fa-github"></i>Github Repository</a
+                          >
+                        </div>
+                      </div>
+                    </div> -->
+                </div>
+                <img src="images/dayplan-img/day-01.png" class="img-fluid" />
+                <div class="card-body">
+                  Just a card that can be used to display some content, graphs,
+                  tables, and so on.
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <!-- Weather Dashboard -->
+              <div class="card spur-card">
+                <div class="card-header">
+                  <div class="spur-card-icon">
+                    <i class="fas fa-image"></i>
+                  </div>
+                  <div class="spur-card-title">Weather Dashboard</div>
+                  <!-- <div class="spur-card-menu">
+                      <div class="dropdown show">
+                        <a
+                          class="spur-card-menu-link"
+                          href="#"
+                          role="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                        </a>
+                        <div
+                          class="dropdown-menu dropdown-menu-right"
+                          aria-labelledby="dropdownMenuLink"
+                        >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fas fa-image"></i>Demo</a
+                          >
+                          <a class="dropdown-item" href="#"
+                            ><i class="fab fa-github"></i>Github Repository</a
+                          >
+                        </div>
+                      </div>
+                    </div> -->
+                </div>
+                <img
+                  src="images/weather-img/weather-img1.png"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  Just a card that can be used to display some content, graphs,
+                  tables, and so on.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
