@@ -9,15 +9,35 @@ current = {
   half: "",
 };
 
-dayEvents = [];
+let numHours = 24;
+events = {};
 
 buttons = [];
 
 fnUpdateTime();
 fnBuild();
 
+// function to save row items
+function fnSave(hour) {
+  events[`appt-${hour}`] = $(`#appt-${hour}`).val();
+  events[`appt-notes-${hour}`] = $(`#appt-notes-${hour}`).val();
+  console.log(events);
+  localStorage.setItem("dayPlan", JSON.stringify(events));
+}
+
+// function to clear row items
+function fnClear(hour) {
+  events[`appt-${hour}`] = '';
+  events[`appt-notes-${hour}`] = ''
+  $(`#appt-${hour}`).text('')
+  $(`#appt-notes-${hour}`).text('')
+  localStorage.setItem("dayPlan", JSON.stringify(events));
+}
+
 // build rows and columns
 function fnBuild() {
+  events = JSON.parse(localStorage.getItem("dayPlan")) || {};
+  console.log(events);
   let rowFunctions = [
     function (h, c) {
       h < 12 ? c.text(h + ":00 AM") : c.text(h + ":00 PM");
@@ -27,29 +47,37 @@ function fnBuild() {
       // appointment name
       // create edit area
       let textArea = $(`<textarea id="appt-${h}">`);
-      c.append(textArea)
+      c.append(textArea);
       // ! get appointment from localstorage by hour
-      textArea.text("naw")
+      if (events[`appt-${h}`] != undefined)
+        textArea.text(`${events[`appt-${h}`]}`);
     },
     function (h, c) {
       // notes
       // create edit area
       let textArea = $(`<textarea id="appt-notes-${h}">`);
-      c.append(textArea)
+      c.append(textArea);
       // ! get appointment from localstorage by hour
-      textArea.text("naw")
+      if (events[`appt-notes-${h}`] != undefined)
+        textArea.text(`${events[`appt-notes-${h}`]}`);
     },
     function (h, c) {
       // save button
       let btn = $("<button>");
-      btn.addClass("");
-      btn.attr("id",`save-${h}`);
+      btn.addClass("saveBtn");
+      btn.attr("id", `save-${h}`);
       btn.text("Save");
-      c.append(btn)
+      let btn1 = $("<button>");
+      btn1.addClass("clearBtn");
+      btn1.attr("id", `clear-${h}`);
+      btn1.text("Clear");
+      c.append(btn);
+      c.append(btn1);
+
+      // buttons events
     },
   ];
-  let colHeadings = ["Hour","Appointment","Notes","Save"]
-  let numHours = 24;
+  let colHeadings = ["Hour", "Appointment", "Notes", "Save"];
 
   // table header
   let table = $("<table>");
@@ -58,10 +86,9 @@ function fnBuild() {
     let col = $("<th>");
     col.addClass("thead-dark");
     col.text(head);
-    table.append(col)
+    table.append(col);
   });
-  $("#hourBlockArea").append(table)
-
+  $("#hourBlockArea").append(table);
 
   // create rows
   for (let i = 0; i <= numHours - 1; i++) {
@@ -75,8 +102,8 @@ function fnBuild() {
     }
     if (i == current.hour) {
       row.addClass("row-current");
-    } else if((i<current.hour)&&(i>=9)) {
-      row.addClass("row-prev-business")
+    } else if (i < current.hour && i >= 9) {
+      row.addClass("row-prev-business");
     }
 
     // add different types of info to each column
@@ -90,6 +117,17 @@ function fnBuild() {
     // add rows
     $("#hourBlockArea").append(row);
   }
+
+  // button events
+  $("button").on("click", function () {
+    let type = $(this).hasClass("saveBtn") ? "save" : "clear";
+    let h = $(this)
+      .attr("id")
+      .replace(type + "-", "");
+
+    if (type === "save") fnSave(h);
+    if (type === "clear") fnClear(h);
+  });
 }
 
 // periodically updates time
@@ -124,5 +162,5 @@ function fnUpdateTime() {
   });
   console.log(current);
 
-  $("#day-title").text(`${current.day}, ${current.month} ${current.ordinal}`)
+  $("#day-title").text(`${current.day}, ${current.month} ${current.ordinal}`);
 }
