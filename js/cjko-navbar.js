@@ -24,6 +24,9 @@ if (page === "index.html" || page === "") {
         <div class="dash-nav-dropdown-menu">
             <a href="https://miradetm.github.io/DU-project-1/" class="dash-nav-dropdown-item">Elifino</a>
         </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="https://project-2-chatify.herokuapp.com/#" class="dash-nav-dropdown-item">SpotChatify</a>
+        </div>
     </div>
     <div class="dash-nav-dropdown ">
         <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
@@ -98,6 +101,9 @@ if (page === "index.html" || page === "") {
             <i class="fas fa-cube"></i> Projects </a>
         <div class="dash-nav-dropdown-menu">
             <a href="https://miradetm.github.io/DU-project-1/" class="dash-nav-dropdown-item">Elifino</a>
+        </div>
+        <div class="dash-nav-dropdown-menu">
+            <a href="https://project-2-chatify.herokuapp.com/#" class="dash-nav-dropdown-item">SpotChatify</a>
         </div>
     </div>
     <div class="dash-nav-dropdown ">
